@@ -180,6 +180,11 @@ class EasyLocalizationController extends ChangeNotifier {
     notifyListeners();
   }
 
+  // avoid name conflict with the variable saveLocale
+  Future<void> storeLocale(Locale? locale) async {
+    await _saveLocale(_locale);
+  }
+
   Future<void> _saveLocale(Locale? locale) async {
     if (!saveLocale) return;
     _savedLocale = locale;
